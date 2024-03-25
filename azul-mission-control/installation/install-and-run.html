@@ -1,0 +1,41 @@
+https://docs.azul.com/azul-mission-control/installation/install-and-run.html
+
+Installing and Running Azul Mission Control
+Installing and Running On Windows
+Download the .zip installation package.
+
+Extract the downloaded package.
+
+Run Azul Mission Control as shown below:
+
+ 
+".\zmc<version>-ca-win_x64\Azul Mission Control\zmc.exe"
+
+Configuring JDK for Azul Mission Control
+If you observe the "No local JVMs detected" warning when you run zmc.exe, perform either of the following:
+
+Use the -vm parameter to explicitly specify an appropriate JDK to run Azul Mission Control, for example:
+
+ 
+zmc.exe -vm D:\JAVAs\zulu11\bin
+
+Edit the zmc.ini configuration file before running Azul Mission Control as described below:
+
+Open zmc.ini located in the same directory as zmc.exe.
+
+Insert the following two lines above the -vmargs command:
+
+ 
+-vm
+<path_to_jdk_folder>\bin
+
+Your modified zmc.ini should look similar to the sample below:
+
+ 
+--launcher.appendVmargs
+-vm
+D:\JAVAs\zulu11\bin
+-vmargs
+...
+
+Save zmc.ini.
