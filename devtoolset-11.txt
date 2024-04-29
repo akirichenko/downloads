@@ -1,0 +1,43 @@
+https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11/html-single/user_guide/index
+
+1.4.1. Using Red Hat Software Collections
+Complete the following steps to attach a subscription that provides access to the repository for Red Hat Software Collections (which includes Red Hat Developer Toolset), and then enable that repository:
+
+Determine the pool ID of a subscription that provides Red Hat Software Collections (and thus also Red Hat Developer Toolset). To do so, display a list of all subscriptions that are available for your system:
+
+# subscription-manager list --available
+For each available subscription, this command displays its name, unique identifier, expiration date, and other details related to your subscription. The pool ID is listed on a line beginning with Pool ID.
+
+For a complete list of subscriptions that provide access to Red Hat Developer Toolset, see https://access.redhat.com/solutions/472793.
+
+Attach the appropriate subscription to your system:
+
+# subscription-manager attach --pool=pool_id
+Replace pool_id with the pool ID you determined in the previous step. To verify the list of subscriptions your system has currently attached, at any time:
+
+# subscription-manager list --consumed
+Determine the exact name of the Red Hat Software Collections repository. Retrieve repository metadata and to display a list of available Yum repositories:
+
+# subscription-manager repos --list
+The repository names depend on the specific version of Red Hat Enterprise Linux you are using and are in the following format:
+
+rhel-variant-rhscl-version-rpms
+rhel-variant-rhscl-version-debug-rpms
+rhel-variant-rhscl-version-source-rpms
+In addition, certain packages, such as devtoolset-11-gcc-plugin-devel, depend on packages that are only available in the Optional channel. The repository names with these packages use the following format:
+
+rhel-version-variant-optional-rpms
+rhel-version-variant-optional-debug-rpms
+rhel-version-variant-optional-source-rpms
+For both the regular repositories and optional repositories, replace variant with the Red Hat Enterprise Linux system variant (server or workstation), and version with the Red Hat Enterprise Linux system version (7).
+
+Enable the repositories from step no. 3:
+
+# subscription-manager repos --enable repository
+Replace repository with the name of the repository to enable.
+
+Once the subscription is attached to the system, you can install Red Hat Developer Toolset as described in Section 1.5, “Installing Red Hat Developer Toolset”. For more information on how to register your system using Red Hat Subscription Management and associate it with subscriptions, see the Red Hat Subscription Management collection of guides.
+
+1.5.1. Installing All Available Components
+
+# yum install devtoolset-11
