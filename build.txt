@@ -1,0 +1,42 @@
+https://www.linuxfromscratch.org/blfs/view/svn/general/gcc.html
+
+case $(uname -m) in
+  x86_64)
+    sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
+  ;;
+esac
+
+mkdir build               &&
+cd    build               &&
+
+../configure              \
+    --prefix=/usr         \
+    --disable-multilib    \
+    --with-system-zlib    \
+    --enable-default-pie  \
+    --enable-default-ssp  \
+    --disable-fixincludes \
+    --enable-languages=c,c++,fortran,go,objc,obj-c++,m2 &&
+make
+
+
+make install &&
+mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
+
+chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/13.2.0/include{,-fixed}
+
+============================================================
+https://www.linuxfromscratch.org/blfs/view/svn/general/gdb.html
+
+mkdir build &&
+cd    build &&
+
+../configure --prefix=/usr          \
+             --with-system-readline \
+             --with-python=/usr/bin/python3 &&
+make
+
+make -C gdb install &&
+make -C gdbserver install
