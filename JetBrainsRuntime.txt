@@ -2,6 +2,7 @@ alsa-lib-devel cups-devel fontconfig-devel libXtst-devel libXt-devel libXrender-
 ln -s /usr/lib64/Scrt1.o /usr/lib/Scrt1.o 
 no -std=gnu++23 ?
 -O3 ?
+--enable-ccache ? install ccache?
 
 export PATH=/dump/JetBrainsRuntime/zulu21.34.19-ca-jdk21.0.3-linux_x64/bin:$PATH
 
