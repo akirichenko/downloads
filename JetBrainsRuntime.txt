@@ -1,0 +1,12 @@
+alsa-lib-devel cups-devel fontconfig-devel libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-devel wayland-devel
+ln -s /usr/lib64/Scrt1.o /usr/lib/Scrt1.o 
+no -std=gnu++23 ?
+-O3 ?
+
+export PATH=/dump/JetBrainsRuntime/zulu21.34.19-ca-jdk21.0.3-linux_x64/bin:$PATH
+
+sh ./configure --enable-ccache CC='/usr/bin/gcc' CXX='/usr/bin/g++' --disable-warnings-as-errors --with-extra-cxxflags='-std=gnu++23 -Ofast -march=native -funroll-loops -fomit-frame-pointer' --with-native-debug-symbols=none --disable-manpages --with-jvm-features=zgc,shenandoahgc,link-time-opt
+make images
+
+result in 
+	cd build/linux-x86_64-server-release/images/jdk
