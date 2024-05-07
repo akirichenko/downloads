@@ -5,6 +5,7 @@ no -std=gnu++23 ?
 --enable-ccache ? install ccache?
 
 -XX:+UseShenandoahGC
+-XX:-UseBiasedLocking
 
 export PATH=/dump/JetBrainsRuntime/zulu21.34.19-ca-jdk21.0.3-linux_x64/bin:$PATH
 
