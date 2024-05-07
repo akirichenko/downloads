@@ -4,6 +4,8 @@ no -std=gnu++23 ?
 -O3 ?
 --enable-ccache ? install ccache?
 
+-XX:+UseShenandoahGC
+
 export PATH=/dump/JetBrainsRuntime/zulu21.34.19-ca-jdk21.0.3-linux_x64/bin:$PATH
 
 sh ./configure --enable-ccache CC='/usr/bin/gcc' CXX='/usr/bin/g++' --disable-warnings-as-errors --with-extra-cxxflags='-std=gnu++23 -Ofast -march=native -funroll-loops -fomit-frame-pointer' --with-native-debug-symbols=none --disable-manpages --with-jvm-features=zgc,shenandoahgc,link-time-opt
