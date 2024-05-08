@@ -9,7 +9,7 @@ no -std=gnu++23 ?
 
 export PATH=/dump/JetBrainsRuntime/zulu21.34.19-ca-jdk21.0.3-linux_x64/bin:$PATH
 
-sh ./configure --enable-ccache CC='/usr/bin/gcc' CXX='/usr/bin/g++' --disable-warnings-as-errors --with-extra-cxxflags='-std=gnu++23 -Ofast -march=native -funroll-loops -fomit-frame-pointer' --with-native-debug-symbols=none --disable-manpages --with-jvm-features=zgc,shenandoahgc,link-time-opt
+sh ./configure CC='/opt/gcc/latest/bin/gcc' CXX='/opt/gcc/latest/bin/g++' --disable-warnings-as-errors --with-extra-cxxflags='-Ofast -march=native -funroll-loops -fomit-frame-pointer' --with-native-debug-symbols=none --disable-manpages --with-jvm-features=g1gc,zgc,shenandoahgc,link-time-opt,compiler1,compiler2 --with-boot-jdk=/dump/JetBrainsRuntime/zulu17.50.19-ca-jdk17.0.11-linux_x64
 make images
 
 result in 
