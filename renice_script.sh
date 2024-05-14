@@ -6,6 +6,7 @@
 # check: cat /proc/sys/kernel/sched_autogroup_enabled
 # and reset manually: echo 0 > /proc/sys/kernel/sched_autogroup_enabled
 # use /etc/sysctl.conf from above
+# or add "noautogroup" to the kernel cmdline
 
 arr=("polkitd" "microsoft" "home1" "auditd")
 
