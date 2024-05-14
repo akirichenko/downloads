@@ -2,8 +2,9 @@
 
 # add to /etc/sysctl.conf
 # kernel.sched_autogroup_enabled = 0
-# check cat /proc/sys/kernel/sched_autogroup_enabled
-# and reset manually echo 0 > /proc/sys/kernel/sched_autogroup_enabled
+# load the change: sysctl -p  /etc/sysctl.conf
+# check: cat /proc/sys/kernel/sched_autogroup_enabled
+# and reset manually: echo 0 > /proc/sys/kernel/sched_autogroup_enabled
 # use /etc/sysctl.conf from above
 
 arr=("polkitd" "microsoft" "home1" "auditd")
