@@ -53,11 +53,24 @@ make -C gdbserver install
 # https://www.linuxfromscratch.org/blfs/view/svn/general/cmake.html
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
-./bootstrap --prefix=/usr        \
+# built with gcc version 4.8.5
+
+mkdir -p /opt/cmake/3.29.3
+mkdir -p /opt/cmake/3.29.3/share/man
+mkdir -p /opt/cmake/3.29.3/share/doc
+
+yum install libcurl-devel
+yum install bzip2-devel
+
+./bootstrap --prefix=/opt/cmake/3.29.3        \
             --system-libs        \
-            --mandir=/share/man  \
+            --mandir=/opt/cmake/3.29.3/share/man  \
             --no-system-jsoncpp  \
             --no-system-cppdap   \
             --no-system-librhash \
-            --docdir=/share/doc/cmake-3.29.3 &&
+            --no-system-libarchive \
+            --no-system-libuv \
+            --no-system-nghttp2 \
+            --no-system-liblzma \
+            --docdir=/opt/cmake/3.29.3/share/doc
 make
