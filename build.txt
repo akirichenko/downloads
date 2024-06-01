@@ -73,4 +73,13 @@ yum install bzip2-devel
             --no-system-nghttp2 \
             --no-system-liblzma \
             --docdir=/opt/cmake/3.29.3/share/doc
+=================================================================
+git 
+https://www.linuxfromscratch.org/blfs/view/svn/general/git.html
+./configure --prefix=/usr \
+            --with-gitconfig=/etc/gitconfig \
+            --with-python=python3 &&
+make
+make install
+=================================================================
 make
