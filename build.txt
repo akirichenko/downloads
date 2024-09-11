@@ -1,0 +1,91 @@
+How to identify the cause of a JNI global reference memory leak?
+
+https://stackoverflow.com/questions/6423873/how-to-identify-the-cause-of-a-jni-global-reference-memory-leak
+
+-Xcheck:jni -XX:TraceJNICalls
+================================================================
+https://www.linuxfromscratch.org/blfs/view/svn/general/gcc.html
+
+case $(uname -m) in
+  x86_64)
+    sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
+  ;;
+esac
+
+mkdir build               &&
+cd    build               &&
+
+../configure              \
+    --prefix=/usr         \
+    --disable-multilib    \
+    --with-system-zlib    \
+    --enable-default-pie  \
+    --enable-default-ssp  \
+    --disable-fixincludes \
+    --enable-languages=c,c++,fortran,go,objc,obj-c++,m2 &&
+make
+
+
+make install &&
+mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
+
+chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/13.2.0/include{,-fixed}
+-----------------------------------------------------------------
+wget ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-13.1.0/gcc-13.1.0.tar.xz
+tar xvf gcc-13.1.0.tar.xz
+cd gcc-13.1.0
+./contrib/download_prerequisites
+mkdir objdir;cd objdir
+../configure --prefix=/opt/gcc/13.1.0 --enable-languages=c,c++ --disable-multilib --with-system-zlib
+make -j 4
+make install
+============================================================
+https://www.linuxfromscratch.org/blfs/view/svn/general/gdb.html
+
+mkdir build &&
+cd    build &&
+
+../configure --prefix=/usr          \
+             --with-system-readline \
+             --with-python=/usr/bin/python3 &&
+make
+
+make -C gdb install &&
+make -C gdbserver install
+===========================================================
+# cmake
+# https://www.linuxfromscratch.org/blfs/view/svn/general/cmake.html
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
+
+# built with gcc version 4.8.5
+
+mkdir -p /opt/cmake/3.29.3
+mkdir -p /opt/cmake/3.29.3/share/man
+mkdir -p /opt/cmake/3.29.3/share/doc
+
+yum install libcurl-devel
+yum install bzip2-devel
+
+./bootstrap --prefix=/opt/cmake/3.29.3        \
+            --system-libs        \
+            --mandir=/opt/cmake/3.29.3/share/man  \
+            --no-system-jsoncpp  \
+            --no-system-cppdap   \
+            --no-system-librhash \
+            --no-system-libarchive \
+            --no-system-libuv \
+            --no-system-nghttp2 \
+            --no-system-liblzma \
+            --docdir=/opt/cmake/3.29.3/share/doc
+=================================================================
+git 
+https://www.linuxfromscratch.org/blfs/view/svn/general/git.html
+./configure --prefix=/usr \
+            --with-gitconfig=/etc/gitconfig \
+            --with-python=python3 &&
+make
+make install
+=================================================================
+make
