@@ -5,3 +5,4 @@ https://youtu.be/HBWaffsl7fo
 -XX:+ClassUnloadingWithConcurrentMark
 -XX:ShenandoahUnloadClassesFrequency=100
 https://medium.com/outbrain-engineering/leveraging-shenandoah-to-cut-cassandras-tail-latency-d2a11725e4d8
+-XX:-ClassUnloading
