@@ -1,2 +1,3 @@
 +XX:PrintSafePointStatistics
 -XX:+UseCountedLoopSafepoints (not safe? try)
+-XX:+MonitorInUseLists
