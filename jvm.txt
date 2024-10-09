@@ -1,3 +1,6 @@
 +XX:PrintSafePointStatistics
 -XX:+UseCountedLoopSafepoints (not safe? try)
 -XX:+MonitorInUseLists
+-XX:+ClassUnloadingWithConcurrentMark
+-XX:ShenandoahUnloadClassesFrequency=100
+https://medium.com/outbrain-engineering/leveraging-shenandoah-to-cut-cassandras-tail-latency-d2a11725e4d8
