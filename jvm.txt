@@ -1,2 +1,2 @@
 +XX:PrintSafePointStatistics
-
+-XX:+UseCountedLoopSafepoints (not safe? try)
