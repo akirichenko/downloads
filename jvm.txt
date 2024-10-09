@@ -9,3 +9,4 @@ https://medium.com/outbrain-engineering/leveraging-shenandoah-to-cut-cassandras-
 -XX:GuaranteedSafepointInterval=300000 (VM option 'GuaranteedSafepointInterval' is diagnostic and must be enabled via -XX:+UnlockDiagnosticVMOptions.)
 -XX:+PrintApplicationStoppedTime
 -XX:+PrintSafepointStatistics
+./java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal 2>&1 | grep Safepoint
