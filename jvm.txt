@@ -3,6 +3,6 @@ https://youtu.be/HBWaffsl7fo
 -XX:+UseCountedLoopSafepoints (not safe? try)
 -XX:+MonitorInUseLists
 -XX:+ClassUnloadingWithConcurrentMark
--XX:ShenandoahUnloadClassesFrequency=100
+-XX:ShenandoahUnloadClassesFrequency=100 (VM option 'ShenandoahUnloadClassesFrequency' is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.)
 https://medium.com/outbrain-engineering/leveraging-shenandoah-to-cut-cassandras-tail-latency-d2a11725e4d8
 -XX:-ClassUnloading
