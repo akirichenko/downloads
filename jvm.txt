@@ -7,3 +7,4 @@ https://youtu.be/HBWaffsl7fo
 https://medium.com/outbrain-engineering/leveraging-shenandoah-to-cut-cassandras-tail-latency-d2a11725e4d8
 -XX:-ClassUnloading
 -XX:GuaranteedSafepointInterval=300000 (VM option 'GuaranteedSafepointInterval' is diagnostic and must be enabled via -XX:+UnlockDiagnosticVMOptions.)
+-XX:+PrintApplicationStoppedTime
