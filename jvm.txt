@@ -1,1 +1,4 @@
 -XX:+UseCountedLoopSafepoints
+-XX:+UseCLS
+-XX:LSM=1000 (loop count, need to find an optimal number)
+
