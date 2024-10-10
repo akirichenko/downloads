@@ -10,3 +10,10 @@ https://medium.com/outbrain-engineering/leveraging-shenandoah-to-cut-cassandras-
 -XX:+PrintApplicationStoppedTime
 -XX:+PrintSafepointStatistics
 ./java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal 2>&1 | grep Safepoint
+
+-XX:-AdaptiveSizePolicy - disables resizing of the heap 
+jcmd PID VM.stringtable | VM.symboltable
+
+-XX:ExplicitGCInvokesConcurrent
+-Djdk.nio.maxCachedBufferSize=
+LD_PRELOAD=/usr/lib64/libjemalloc.so 
