@@ -17,3 +17,5 @@ jcmd PID VM.stringtable | VM.symboltable
 -XX:ExplicitGCInvokesConcurrent
 -Djdk.nio.maxCachedBufferSize=
 LD_PRELOAD=/usr/lib64/libjemalloc.so 
+
+-XX:-OmitStackTraceInFastThrow
