@@ -1,7 +1,0 @@
-sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-
-sudo dnf upgrade
-sudo dnf install texinfo
-====================================================================================
-
-GRUB_CMDLINE_LINUX="resume=UUID=51484271-5ab7-4cb5-8431-369a81024039 rhgb quiet mitigations=off selinux=0 nvme_core.default_ps_max_latency_us=0 pcie_port_pm=off amd_pstate=active cpufreq.default_governor=performance cpufreq.energy_performance_preference=performance amd_prefcore=enable mce=ignore_ce amdgpu.aspm=0 amdgpu.audio=0 amdgpu.ppfeaturemask=0xfff7ffff transparent_hugepage=always nmi_watchdog=0 nowatchdog vm.zone_reclaim_mode=0 tsc=reliable clocksource=tsc usbcore.autosuspend=-1 pcie_aspm=off idle=nomwait elevator=bfq ignore_rlimit_data split_lock_detect=off split_lock_mitigate=0 gamemode=1 preempt=full bpf_stats_enabled=0"
